@@ -45,69 +45,67 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              Row(
-                children: <Widget>[
-                  Container(
-                      child: GestureDetector(
-                        onTap: () {
+              Padding(
+                padding: const EdgeInsets.only(top: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Container(
+                        child: GestureDetector(
+                          onTap: () {
 
-                        },
-                        child: Stack(
-                          children: <Widget>[
-                            Image(
-                                image: AssetImage("assets/greenCircle.png")
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 65, top: 60),
-                              child: Image(
+                          },
+                          child: Stack(
+                            alignment: Alignment.center,
+                            children: <Widget>[
+                              Image(
+                                  image: AssetImage("assets/greenCircle.png")
+                              ),
+                              Image(
                                   image: AssetImage("assets/phone.png")
                               ),
-                            ),
-                          ],
-                        ),
-                      )
-                  ),
-                  Container(
-                      child: GestureDetector(
-                        onTap: () {
+                            ],
+                          ),
+                        )
+                    ),
+                    Container(
+                        child: GestureDetector(
+                          onTap: () {
 
-                        },
-                        child: Stack(
-                          children: <Widget>[
-                            Image(
-                                image: AssetImage("assets/blueCircle.png")
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 65, top: 60),
-                              child: Image(
+                          },
+                          child: Stack(
+                            alignment: Alignment.center,
+                            children: <Widget>[
+                              Image(
+                                  image: AssetImage("assets/blueCircle.png")
+                              ),
+                              Image(
                                   image: AssetImage("assets/facebook.png")
                               ),
-                            ),
-                          ],
-                        ),
-                      )
-                  ),
-                  Container(
-                      child: GestureDetector(
-                        onTap: () {
+                            ],
+                          ),
+                        )
+                    ),
+                    Container(
+                        child: GestureDetector(
+                          onTap: () {
 
-                        },
-                        child: Stack(
-                          children: <Widget>[
-                            Image(
-                                image: AssetImage("assets/redCircle.png")
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 65, top: 60),
-                              child: Image(
+                          },
+                          child: Stack(
+                            alignment: Alignment.center,
+                            children: <Widget>[
+                              Image(
+                                  image: AssetImage("assets/redCircle.png")
+                              ),
+                              Image(
                                   image: AssetImage("assets/google.png")
                               ),
-                            ),
-                          ],
-                        ),
-                      )
-                  ),
-                ],
+                            ],
+                          ),
+                        )
+                    ),
+                  ],
+                ),
               )
             ],
           ),
