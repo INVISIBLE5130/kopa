@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kopa/view/homePage.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as JSON;
 
@@ -41,10 +42,30 @@ class _EnterPageState extends State<EnterPage> {
   }
 
   logout() {
-    facebookLogin.logOut();
-    setState(() {
-      isLoggedIn = false;
-    });
+    if (facebookLogin.logOut() != null) {
+      facebookLogin.logOut();
+      setState(() {
+        isLoggedIn = false;
+      });
+    } else if (googleSignIn.signOut() != null) {
+      googleSignIn.signOut();
+      setState(() {
+        isLoggedIn = false;
+      });
+    }
+  }
+
+  GoogleSignIn googleSignIn = GoogleSignIn(scopes: ['email']);
+
+  loginWithGoogle() async{
+    try{
+      await googleSignIn.signIn();
+      setState(() {
+        isLoggedIn = true;
+      });
+    } catch (err){
+      print(err);
+    }
   }
 
   @override
@@ -128,7 +149,7 @@ class _EnterPageState extends State<EnterPage> {
                     Container(
                         child: GestureDetector(
                           onTap: () {
-
+                            loginWithGoogle();
                           },
                           child: Stack(
                             alignment: Alignment.center,
