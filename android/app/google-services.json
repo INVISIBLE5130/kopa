@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "534664912191",
+    "firebase_url": "https://kopa-cccad.firebaseio.com",
+    "project_id": "kopa-cccad",
+    "storage_bucket": "kopa-cccad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:534664912191:android:d6714210aa00d647af878a",
+        "android_client_info": {
+          "package_name": "com.example.kopa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "534664912191-j2mumshrhqasamau5husr9e1fcajmins.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANjQZEfDq7wAYztFbyTXvx2BiXdPcjgPA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "534664912191-j2mumshrhqasamau5husr9e1fcajmins.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

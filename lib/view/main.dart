@@ -10,7 +10,7 @@ class KopaApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomePage(),
+      home: EnterPage(),
     );
   }
 }

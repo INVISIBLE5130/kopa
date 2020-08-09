@@ -1,18 +1,57 @@
 import 'package:flutter/material.dart';
+import 'package:kopa/view/homePage.dart';
+import 'package:flutter_facebook_login/flutter_facebook_login.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert' as JSON;
 
-class HomePage extends StatefulWidget {
+class EnterPage extends StatefulWidget {
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _EnterPageState createState() => _EnterPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _EnterPageState extends State<EnterPage> {
+  bool isLoggedIn = false;
+  Map userProfile;
+  final facebookLogin = FacebookLogin();
+
+  loginWithFB() async{
+    final result = await facebookLogin.logIn(['email']);
+
+    switch (result.status) {
+      case FacebookLoginStatus.loggedIn:
+        final token = result.accessToken.token;
+        final graphResponse = await http.get('https://graph.facebook.com/v2.12/me?fields=name,picture,email&access_token=${token}');
+        final profile = JSON.jsonDecode(graphResponse.body);
+        print(profile);
+        setState(() {
+          userProfile = profile;
+          isLoggedIn = true;
+        });
+        break;
+
+      case FacebookLoginStatus.cancelledByUser:
+        setState(() => isLoggedIn = false );
+        break;
+      case FacebookLoginStatus.error:
+        setState(() => isLoggedIn = false );
+        break;
+    }
+
+  }
+
+  logout() {
+    facebookLogin.logOut();
+    setState(() {
+      isLoggedIn = false;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(1,229,229,229),
-      body: Container(
+      body: isLoggedIn ? HomePage() : Container(
         padding: EdgeInsets.only(top: 100),
         alignment: Alignment.topCenter,
         child: Column(
@@ -71,7 +110,7 @@ class _HomePageState extends State<HomePage> {
                     Container(
                         child: GestureDetector(
                           onTap: () {
-
+                            loginWithFB();
                           },
                           child: Stack(
                             alignment: Alignment.center,
