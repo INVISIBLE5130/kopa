@@ -4,6 +4,8 @@ import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as JSON;
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:kopa/view/phoneAuth.dart';
 
 class EnterPage extends StatefulWidget {
 
@@ -106,28 +108,10 @@ class _EnterPageState extends State<EnterPage> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 20),
+                padding: const EdgeInsets.only(top: 45),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Container(
-                        child: GestureDetector(
-                          onTap: () {
-
-                          },
-                          child: Stack(
-                            alignment: Alignment.center,
-                            children: <Widget>[
-                              Image(
-                                  image: AssetImage("assets/greenCircle.png")
-                              ),
-                              Image(
-                                  image: AssetImage("assets/phone.png")
-                              ),
-                            ],
-                          ),
-                        )
-                    ),
+                    PhoneLogin(),
                     Container(
                         child: GestureDetector(
                           onTap: () {
@@ -136,8 +120,10 @@ class _EnterPageState extends State<EnterPage> {
                           child: Stack(
                             alignment: Alignment.center,
                             children: <Widget>[
-                              Image(
-                                  image: AssetImage("assets/blueCircle.png")
+                              RawMaterialButton(
+                                padding: EdgeInsets.all(32.5),
+                                fillColor: Colors.blueAccent,
+                                shape: CircleBorder(),
                               ),
                               Image(
                                   image: AssetImage("assets/facebook.png")
@@ -151,16 +137,21 @@ class _EnterPageState extends State<EnterPage> {
                           onTap: () {
                             loginWithGoogle();
                           },
-                          child: Stack(
-                            alignment: Alignment.center,
-                            children: <Widget>[
-                              Image(
-                                  image: AssetImage("assets/redCircle.png")
-                              ),
-                              Image(
-                                  image: AssetImage("assets/google.png")
-                              ),
-                            ],
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 35),
+                            child: Stack(
+                              alignment: Alignment.center,
+                              children: <Widget>[
+                                RawMaterialButton(
+                                  padding: EdgeInsets.all(32.5),
+                                  fillColor: Colors.red,
+                                  shape: CircleBorder(),
+                                ),
+                                Image(
+                                    image: AssetImage("assets/google.png")
+                                ),
+                              ],
+                            ),
                           ),
                         )
                     ),
