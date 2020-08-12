@@ -4,7 +4,6 @@ import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as JSON;
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:kopa/view/phoneAuth.dart';
 
 class EnterPage extends StatefulWidget {
@@ -84,26 +83,21 @@ class _EnterPageState extends State<EnterPage> {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 30),
-                child: GestureDetector(
-                  onTap: () {
-
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 30),
-                    child: Stack(
-                        children: <Widget>[
-                          Image(
-                            image: AssetImage("assets/enter.png"),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 70, top: 30),
-                            child: Text("Enter", style: TextStyle(
-                              fontSize: 30,
-                              color: Colors.white
-                            ),),
-                          ),
-                        ]
-                    ),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 30),
+                  child: Stack(
+                      children: <Widget>[
+                        Image(
+                          image: AssetImage("assets/enter.png"),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 70, top: 30),
+                          child: Text("Enter", style: TextStyle(
+                            fontSize: 30,
+                            color: Colors.white
+                          ),),
+                        ),
+                      ]
                   ),
                 ),
               ),
