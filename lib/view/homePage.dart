@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kopa/core/ui/navBar.dart';
 
 class HomePage extends StatefulWidget {
 
@@ -48,7 +49,7 @@ class _HomePageState extends State<HomePage> {
                           onTap: () {
                             print('Card tapped.');
                           },
-                          child: Row(
+                          child: Stack(
                             children: <Widget>[
                               Container(
                                 width: 150.0,
@@ -87,20 +88,125 @@ class _HomePageState extends State<HomePage> {
                                   );
                                 },
                                 child: Container(
-                                    padding: EdgeInsets.only(left: 160, bottom: 80),
-                                    child: Chip(
-                                      label: Text(
-                                        "100" + new String.fromCharCodes(new Runes('\u0024')),
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 16
-                                        ),
+                                  padding: EdgeInsets.only(left: 310, bottom: 80),
+                                  child: Chip(
+                                    label: Text(
+                                      "100" + new String.fromCharCodes(new Runes('\u0024')),
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 16
                                       ),
-                                      shadowColor: Colors.black,
-                                      backgroundColor: Colors.yellow,
-                                      elevation: 10,
-                                      autofocus: true,
-                                    )),
+                                    ),
+                                    shadowColor: Colors.black,
+                                    backgroundColor: Colors.yellow,
+                                    elevation: 10,
+                                    autofocus: true,
+                                  )
+                                ),
+                              ),
+                              Container(
+                                padding: EdgeInsets.only(left: 170, top: 10),
+                                child: Text(
+                                  "Nike 992K",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                      fontSize: 16
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                padding: EdgeInsets.only(left: 170, top: 35),
+                                child: Text(
+                                  "Розміри стопи: ",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 16
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                padding: EdgeInsets.only(left: 170, top: 60),
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: <Widget>[
+                                    Column(
+                                      children: <Widget>[
+                                        Text(
+                                          "40",
+                                          style: TextStyle(
+                                              color: Colors.blue,
+                                              fontSize: 22
+                                          ),
+                                        ),
+                                        Text(
+                                          "EU",
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 10
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 15),
+                                      child: Column(
+                                        children: <Widget>[
+                                          Padding(
+                                            padding: const EdgeInsets.only(bottom: 3),
+                                            child: Text(
+                                              "28.5",
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 14
+                                              ),
+                                            ),
+                                          ),
+                                          Text(
+                                            "Довжина / см",
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 10
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 15),
+                                      child: Column(
+                                        children: <Widget>[
+                                          Padding(
+                                            padding: const EdgeInsets.only(bottom: 3),
+                                            child: Text(
+                                              "10",
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 14
+                                              ),
+                                            ),
+                                          ),
+                                          Text(
+                                            "Ширина / см",
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 10
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                padding: EdgeInsets.only(left: 170, top: 105),
+                                child: Text(
+                                  "Матеріал: Шкіра",
+                                  style: TextStyle(
+                                      color: Colors.grey,
+                                      fontSize: 10
+                                  ),
+                                ),
                               ),
                             ],
                           ),
@@ -111,6 +217,7 @@ class _HomePageState extends State<HomePage> {
                 },
               ),
             ),
+//            NavBar()
           ],
         ),
       ),
