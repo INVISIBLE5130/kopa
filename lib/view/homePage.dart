@@ -3,12 +3,17 @@ import 'package:kopa/core/ui/navBar.dart';
 
 class HomePage extends StatefulWidget {
 
+  HomePage({Key key, this.onPressed}) : super(key: key);
+
+  final Function() onPressed;
+
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
   bool isLoggedIn = false;
+  bool pressed = false;
   Map userProfile;
 
   @override
@@ -102,6 +107,19 @@ class _HomePageState extends State<HomePage> {
                                     elevation: 10,
                                     autofocus: true,
                                   )
+                                ),
+                              ),
+                              FlatButton(
+                                onPressed: () {
+                                  setState(() => { pressed = !pressed });
+                                  widget.onPressed();
+                                },
+                                child: Align(
+                                  alignment: Alignment.topLeft,
+                                  child: Icon(
+                                    Icons.favorite,
+                                    color: pressed ? Colors.red : Colors.white,
+                                  ),
                                 ),
                               ),
                               Container(
