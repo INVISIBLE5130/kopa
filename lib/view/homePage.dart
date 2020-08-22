@@ -1,3 +1,5 @@
+import 'dart:js';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
@@ -25,34 +27,19 @@ class _HomePageState extends State<HomePage> {
     _controller = PersistentTabController(initialIndex: 0);
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return PersistentTabView(
-      controller: _controller,
-      screens: _buildScreens(),
-      items: _navBarsItems(),
-      confineInSafeArea: true,
-      backgroundColor: Colors.white,
-      handleAndroidBackButtonPress: true,
-      resizeToAvoidBottomInset: true, // This needs to be true if you want to move up the screen when keyboard appears.
-      stateManagement: true,
-      hideNavigationBarWhenKeyboardShows: true, // Recommended to set 'resizeToAvoidBottomInset' as true while using this argument.
-      decoration: NavBarDecoration(
-        borderRadius: BorderRadius.circular(10.0),
-        colorBehindNavBar: Colors.white,
-      ),
-      popAllScreensOnTapOfSelectedTab: true,
-      itemAnimationProperties: ItemAnimationProperties( // Navigation Bar's items animation properties.
-        duration: Duration(milliseconds: 200),
-        curve: Curves.ease,
-      ),
-      screenTransitionAnimation: ScreenTransitionAnimation( // Screen transition animation on change of selected tab.
-        animateTabTransition: true,
-        curve: Curves.ease,
-        duration: Duration(milliseconds: 200),
-      ),
-      navBarStyle: NavBarStyle.style16, // Choose the nav bar style with this property.
-    );
+  int _selectedIndex = 0;
+  static const List<Widget> _widgetOptions = <Widget>[
+    MaterialPageRoute(
+      builder: (context) {
+
+      }
+    )
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
   }
 
   @override
@@ -273,6 +260,53 @@ class _HomePageState extends State<HomePage> {
                     ),
                   );
                 },
+              ),
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: BottomNavigationBar(
+                backgroundColor: Color.fromARGB(255, 80, 80, 81),
+                type: BottomNavigationBarType.fixed,
+                items: const <BottomNavigationBarItem>[
+                  BottomNavigationBarItem(
+                    icon: Image(
+                        image: AssetImage('assets/menu.png'),
+                    ),
+                    title: Text('')
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Image(
+                      image: AssetImage('assets/shoes.png')
+                    ),
+                    title: Text('')
+                  ),
+                  BottomNavigationBarItem(
+                    icon: CircleAvatar(
+                      radius: 30,
+                      backgroundColor: Colors.lightBlueAccent,
+                      child: Icon(
+                        Icons.add,
+                        color: Colors.white,
+                      ),
+                    ),
+                    title: Text('')
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Image(
+                      image: AssetImage('assets/heart.png')
+                    ),
+                    title: Text('')
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Image(
+                      image: AssetImage('assets/settings.png')
+                    ),
+                    title: Text('')
+                  ),
+                ],
+                currentIndex: _selectedIndex,
+                selectedItemColor: Colors.amber[800],
+                onTap: _onItemTapped,
               ),
             ),
           ],
