@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
@@ -29,11 +27,7 @@ class _HomePageState extends State<HomePage> {
 
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
-    MaterialPageRoute(
-      builder: (context) {
 
-      }
-    )
   ];
 
   void _onItemTapped(int index) {
@@ -96,6 +90,22 @@ class _HomePageState extends State<HomePage> {
                                     BoxShadow(blurRadius: 2.0, color: Colors.black)
                                   ]
                                 ),
+                                child: FlatButton(
+                                  onPressed: () {
+                                    setState(() => { pressed = !pressed });
+                                    widget.onPressed();
+                                  },
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(top: 15),
+                                    child: Align(
+                                      alignment: Alignment.topLeft,
+                                      child: Icon(
+                                          Icons.favorite,
+                                          color: pressed ? Colors.red : Colors.white
+                                      ),
+                                    ),
+                                  ),
+                                ),
                               ),
                               GestureDetector(
                                 onTap: () {
@@ -134,19 +144,6 @@ class _HomePageState extends State<HomePage> {
                                     elevation: 10,
                                     autofocus: true,
                                   )
-                                ),
-                              ),
-                              FlatButton(
-                                onPressed: () {
-                                  setState(() => { pressed = !pressed });
-                                  widget.onPressed();
-                                },
-                                child: Align(
-                                  alignment: Alignment.topLeft,
-                                  child: Icon(
-                                    Icons.favorite,
-                                    color: pressed ? Colors.red : Colors.white,
-                                  ),
                                 ),
                               ),
                               Container(
