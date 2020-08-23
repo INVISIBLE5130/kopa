@@ -1,17 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
+class FavouritePage extends StatefulWidget {
 
-  HomePage({Key key, this.onPressed}) : super(key: key);
+  FavouritePage({Key key, this.onPressed}) : super(key: key);
 
   final Function() onPressed;
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _FavouritePageState createState() => _FavouritePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _FavouritePageState extends State<FavouritePage> {
   bool isLoggedIn = false;
   bool pressed = false;
   Map userProfile;
@@ -30,20 +30,11 @@ class _HomePageState extends State<HomePage> {
                 image: AssetImage("assets/header.png"),
               ),
             ),
-            Align(
-              alignment: Alignment.topLeft,
-              child: Padding(
-                padding: const EdgeInsets.only(top: 70, left: 30),
-                child: Image(
-                  image: AssetImage("assets/filter.png"),
-                ),
-              ),
-            ),
             Padding(
               padding: const EdgeInsets.only(top: 100),
               child: ListView.builder(
                 padding: const EdgeInsets.all(16),
-                itemCount: 5,
+                itemCount: 3,
                 itemBuilder: (context, i) {
                   return Container(
                     child: ClipRRect(

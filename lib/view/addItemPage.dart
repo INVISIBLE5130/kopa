@@ -1,17 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
+class AddItemPage extends StatefulWidget {
 
-  HomePage({Key key, this.onPressed}) : super(key: key);
+  AddItemPage({Key key, this.onPressed}) : super(key: key);
 
   final Function() onPressed;
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _AddItemPageState createState() => _AddItemPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _AddItemPageState extends State<AddItemPage> {
   bool isLoggedIn = false;
   bool pressed = false;
   Map userProfile;
@@ -31,12 +31,27 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Align(
-              alignment: Alignment.topLeft,
+              alignment: Alignment.topCenter,
               child: Padding(
-                padding: const EdgeInsets.only(top: 70, left: 30),
-                child: Image(
-                  image: AssetImage("assets/filter.png"),
-                ),
+                  padding: const EdgeInsets.only(top: 70, left: 30),
+                  child: Row(
+                    children: <Widget>[
+                      Text(
+                        'Active',
+                        style: TextStyle(
+                            color: Colors.white,
+                            backgroundColor: Colors.blueAccent
+                        ),
+                      ),
+                      Text(
+                        'Archive',
+                        style: TextStyle(
+                            color: Colors.white,
+                            backgroundColor: Colors.transparent
+                        ),
+                      )
+                    ],
+                  )
               ),
             ),
             Padding(

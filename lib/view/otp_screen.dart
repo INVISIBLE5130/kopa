@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 import './otp_input.dart';
-import 'homePage.dart';
+import 'navBar.dart';
 
 class OTPScreen extends StatefulWidget {
   final String mobileNumber;

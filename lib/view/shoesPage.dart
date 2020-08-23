@@ -1,19 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
+class ShoesPage extends StatefulWidget {
 
-  HomePage({Key key, this.onPressed}) : super(key: key);
+  ShoesPage({Key key, this.onPressed}) : super(key: key);
 
   final Function() onPressed;
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _ShoesPageState createState() => _ShoesPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _ShoesPageState extends State<ShoesPage> {
   bool isLoggedIn = false;
-  bool pressed = false;
   Map userProfile;
 
   @override
@@ -31,12 +30,27 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Align(
-              alignment: Alignment.topLeft,
+              alignment: Alignment.topCenter,
               child: Padding(
                 padding: const EdgeInsets.only(top: 70, left: 30),
-                child: Image(
-                  image: AssetImage("assets/filter.png"),
-                ),
+                child: Row(
+                  children: <Widget>[
+                    Text(
+                      'Active',
+                      style: TextStyle(
+                        color: Colors.white,
+                        backgroundColor: Colors.blueAccent
+                      ),
+                    ),
+                    Text(
+                      'Archive',
+                      style: TextStyle(
+                        color: Colors.white,
+                        backgroundColor: Colors.transparent
+                      ),
+                    )
+                  ],
+                )
               ),
             ),
             Padding(
@@ -69,23 +83,7 @@ class _HomePageState extends State<HomePage> {
                                     boxShadow: [
                                       BoxShadow(blurRadius: 2.0, color: Colors.black)
                                     ]
-                                ),
-                                child: FlatButton(
-                                  onPressed: () {
-                                    setState(() => { pressed = !pressed });
-                                    widget.onPressed();
-                                  },
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(top: 15),
-                                    child: Align(
-                                      alignment: Alignment.topLeft,
-                                      child: Icon(
-                                          Icons.favorite,
-                                          color: pressed ? Colors.red : Colors.white
-                                      ),
-                                    ),
-                                  ),
-                                ),
+                                )
                               ),
                               GestureDetector(
                                 onTap: () {

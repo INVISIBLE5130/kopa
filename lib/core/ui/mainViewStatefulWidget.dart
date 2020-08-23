@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kopa/view/homePage.dart';
+import 'package:kopa/view/navBar.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:http/http.dart' as http;
