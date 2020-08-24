@@ -32,24 +32,57 @@ class _ShoesPageState extends State<ShoesPage> {
             Align(
               alignment: Alignment.topCenter,
               child: Padding(
-                padding: const EdgeInsets.only(top: 70, left: 30),
-                child: Row(
-                  children: <Widget>[
-                    Text(
-                      'Active',
-                      style: TextStyle(
-                        color: Colors.white,
-                        backgroundColor: Colors.blueAccent
+                padding: const EdgeInsets.only(top: 70),
+                child: Container(
+                  width: 202,
+                  height: 25,
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.lightBlueAccent),
+                    borderRadius: BorderRadius.all(Radius.circular(30)),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Container(
+                        child: Text(
+                          'Active',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            height: 1.25
+                          ),
+                        ),
+                        width: 100,
+                        height: 30,
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.lightBlueAccent),
+                          borderRadius: BorderRadius.only(bottomLeft: Radius.circular(30), topLeft: Radius.circular(30)),
+                          color: Colors.lightBlueAccent
+                        ),
+                        alignment: Alignment.topCenter,
                       ),
-                    ),
-                    Text(
-                      'Archive',
-                      style: TextStyle(
-                        color: Colors.white,
-                        backgroundColor: Colors.transparent
+                      Container(
+                        child: Text(
+                          'Archive',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              height: 1.25
+                          ),
+                        ),
+                        width: 100,
+                        height: 30,
+                        decoration: BoxDecoration(
+                            border: Border.all(color: Colors.lightBlueAccent),
+                            borderRadius: BorderRadius.only(bottomRight: Radius.circular(30), topRight: Radius.circular(30)),
+                            color: Colors.transparent
+                        ),
+                        alignment: Alignment.topCenter,
                       ),
-                    )
-                  ],
+                    ],
+                  ),
                 )
               ),
             ),

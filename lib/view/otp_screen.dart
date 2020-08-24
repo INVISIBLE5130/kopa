@@ -165,7 +165,7 @@ class _OTPScreenState extends State<OTPScreen> {
           Navigator.pushAndRemoveUntil(
               context,
               MaterialPageRoute(
-                builder: (context) => HomePage(),
+                builder: (context) => Navigation(),
               ),
                   (Route<dynamic> route) => false);
         } else {
@@ -220,7 +220,7 @@ class _OTPScreenState extends State<OTPScreen> {
         Navigator.pushAndRemoveUntil(
             context,
             MaterialPageRoute(
-              builder: (context) => HomePage(),
+              builder: (context) => Navigation(),
             ),
                 (Route<dynamic> route) => false);
       } else {

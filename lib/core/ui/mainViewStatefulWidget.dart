@@ -73,7 +73,7 @@ class _EnterPageState extends State<EnterPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(1,229,229,229),
-      body: isLoggedIn ? HomePage() : Container(
+      body: isLoggedIn ? Navigation() : Container(
         padding: EdgeInsets.only(top: 100),
         alignment: Alignment.topCenter,
         child: Column(
