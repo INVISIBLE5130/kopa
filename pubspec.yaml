@@ -35,6 +35,8 @@ dependencies:
   titled_navigation_bar: ^4.1.0
   flutter_facebook_login: ^3.0.0
   persistent_bottom_nav_bar: ^2.0.5
+  image_picker: ^0.6.0+17
+  firebase_storage: ^3.0.3
 
 dev_dependencies:
   flutter_test:
