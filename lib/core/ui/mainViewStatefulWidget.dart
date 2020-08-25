@@ -39,21 +39,6 @@ class _EnterPageState extends State<EnterPage> {
         setState(() => isLoggedIn = false );
         break;
     }
-
-  }
-
-  logout() {
-    if (facebookLogin.logOut() != null) {
-      facebookLogin.logOut();
-      setState(() {
-        isLoggedIn = false;
-      });
-    } else if (googleSignIn.signOut() != null) {
-      googleSignIn.signOut();
-      setState(() {
-        isLoggedIn = false;
-      });
-    }
   }
 
   GoogleSignIn googleSignIn = GoogleSignIn(scopes: ['email']);

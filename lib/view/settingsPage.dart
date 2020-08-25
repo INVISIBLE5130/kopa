@@ -1,8 +1,9 @@
 import 'dart:io';
-import 'package:firebase_storage/firebase_storage.dart'; // For File Upload To Firestore
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart'; // For Image Picker
+import 'package:image_picker/image_picker.dart';
+import 'package:kopa/core/ui/mainViewStatefulWidget.dart';
 import 'package:path/path.dart' as Path;
 
 class SettingsPage extends StatefulWidget {
@@ -16,8 +17,9 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  Map userProfile;
   File _image;
+  Map userProfile;
+  bool imageUploaded;
   String _uploadedFileURL;
 
   Future chooseFile() async {
@@ -34,11 +36,15 @@ class _SettingsPageState extends State<SettingsPage> {
         .child('userImages/${Path.basename(_image.path)}}');
     StorageUploadTask uploadTask = storageReference.putFile(_image);
     await uploadTask.onComplete;
-    print('Image Uploaded');
+    print(_uploadedFileURL);
     storageReference.getDownloadURL().then((fileURL) {
       setState(() {
         _uploadedFileURL = fileURL;
       });
+    });
+
+    setState(() {
+      imageUploaded = true;
     });
   }
 
@@ -63,12 +69,16 @@ class _SettingsPageState extends State<SettingsPage> {
                   child: Stack(
                     children: <Widget>[
                       Container(
-                        child: Image(
-                          image: _uploadedFileURL != null
-                              ? Image.network(_uploadedFileURL)
-                              : AssetImage('assets/defaultUserImage.png'),
+                        child: _uploadedFileURL != null
+                              ? ClipRRect(
+                                  borderRadius: BorderRadius.circular(50),
+                                  child: Image.network(_uploadedFileURL)
+                              )
+                              : Image(
+                                image: AssetImage('assets/defaultUserImage.png')
+                              ),
                           height: 100,
-                        ),
+                          width: 100,
                         decoration: BoxDecoration(
                             border: Border.all(color: Colors.yellow),
                             borderRadius: BorderRadius.all(Radius.circular(50))
@@ -76,7 +86,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       ),
                       Padding(
                         padding: const EdgeInsets.only(top: 60, left: 50),
-                        child: _image == null
+                        child: _image == null || imageUploaded == false
                             ? FloatingActionButton(
                                 onPressed: chooseFile,
                                 child: CircleAvatar(
@@ -138,12 +148,15 @@ class _SettingsPageState extends State<SettingsPage> {
                       ),
                       Container(
                         padding: EdgeInsets.only(top: 10),
-                        child: Text(
-                          "+380982285663",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
+                        child: Padding(
+                          padding: const EdgeInsets.only(bottom: 10),
+                          child: Text(
+                            "+380982285663",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                         decoration: BoxDecoration(
@@ -153,6 +166,7 @@ class _SettingsPageState extends State<SettingsPage> {
                               )
                           ),
                         ),
+                        width: 350,
                       ),
                     ],
                   ),
@@ -174,28 +188,39 @@ class _SettingsPageState extends State<SettingsPage> {
                       ),
                       Container(
                         padding: EdgeInsets.only(top: 10),
-                        child: Text(
-                          "Vinnytsia",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
+                        child: Padding(
+                          padding: const EdgeInsets.only(bottom: 10),
+                          child: Text(
+                            "Vinnytsia",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                         decoration: BoxDecoration(
                           border: Border(
-                              bottom: BorderSide(
-                                color: Colors.white,
-                              )
+                            bottom: BorderSide(
+                              color: Colors.white
+                            ),
                           ),
                         ),
+                        width: 350,
                       ),
                     ],
                   ),
                 ),
                 Align(
                   alignment: Alignment.center,
-                  child: GestureDetector(
+                  child: RaisedButton(
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> EnterPage()));
+                    },
+                    color: Colors.lightBlueAccent,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.0)
+                    ),
                     child: Container(
                       width: 270,
                       height: 30,
