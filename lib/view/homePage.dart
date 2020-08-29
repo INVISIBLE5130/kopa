@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'itemPage.dart';
+
 class HomePage extends StatefulWidget {
 
   HomePage({Key key, this.onPressed}) : super(key: key);
@@ -54,6 +56,7 @@ class _HomePageState extends State<HomePage> {
                           splashColor: Colors.yellow.withAlpha(30),
                           onTap: () {
                             print('Card tapped.');
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=> ItemPage()));
                           },
                           child: Stack(
                             children: <Widget>[
@@ -87,44 +90,21 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 ),
                               ),
-                              GestureDetector(
-                                onTap: () {
-                                  return showDialog<void>(
-                                    context: context,
-                                    barrierDismissible: false,
-                                    builder: (BuildContext context) {
-                                      return AlertDialog(
-                                        title: Text('Not in stock'),
-                                        content:
-                                        const Text('This item is no longer available'),
-                                        actions: <Widget>[
-                                          FlatButton(
-                                            child: Text('Ok'),
-                                            onPressed: () {
-                                              Navigator.of(context).pop();
-                                            },
-                                          ),
-                                        ],
-                                      );
-                                    },
-                                  );
-                                },
-                                child: Container(
-                                    padding: EdgeInsets.only(left: 310, bottom: 80),
-                                    child: Chip(
-                                      label: Text(
-                                        "100" + new String.fromCharCodes(new Runes('\u0024')),
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 16
-                                        ),
+                              Container(
+                                  padding: EdgeInsets.only(left: 310, bottom: 80),
+                                  child: Chip(
+                                    label: Text(
+                                      "100" + new String.fromCharCodes(new Runes('\u0024')),
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 16
                                       ),
-                                      shadowColor: Colors.black,
-                                      backgroundColor: Colors.yellow,
-                                      elevation: 10,
-                                      autofocus: true,
-                                    )
-                                ),
+                                    ),
+                                    shadowColor: Colors.black,
+                                    backgroundColor: Colors.yellow,
+                                    elevation: 10,
+                                    autofocus: true,
+                                  )
                               ),
                               Container(
                                 padding: EdgeInsets.only(left: 170, top: 10),
