@@ -39,7 +39,7 @@ class _ItemPageState extends State<ItemPage> {
                             height: 400.0,
                             decoration: BoxDecoration(
                                 image: DecorationImage(
-                                    image: AssetImage('assets/item.png'),
+                                    image: AssetImage('assets/itemTemplate.png'),
                                     fit: BoxFit.cover),
                                 borderRadius:
                                 BorderRadius.only(bottomLeft: Radius.circular(15.0), bottomRight: Radius.circular(15.0)),

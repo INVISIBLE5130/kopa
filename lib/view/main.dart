@@ -1,16 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:kopa/core/ui/mainViewStatefulWidget.dart';
+import 'package:kopa/core/CRUDModel.dart';
+import 'package:kopa/core/router.dart';
+import 'package:provider/provider.dart';
+
+import '../locator.dart';
 
 void main() {
+  setupLocator();
   runApp(KopaApp());
 }
 
 class KopaApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: EnterPage(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(builder: (_) => locator<CRUDModel>()),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        initialRoute: '/',
+        onGenerateRoute: Router.generateRoute,
+      ),
     );
   }
 }
