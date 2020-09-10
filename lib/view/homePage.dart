@@ -1,12 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kopa/core/CRUDModel.dart';
 import 'package:kopa/core/productModel.dart';
 import 'package:kopa/view/itemCard.dart';
-import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
-
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -20,8 +17,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final productProvider = Provider.of<CRUDModel>(context);
-
     return Scaffold(
       backgroundColor: Color.fromARGB(1,229,229,229),
       body: Container(
