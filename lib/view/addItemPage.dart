@@ -312,7 +312,10 @@ class _AddItemPageState extends State<AddItemPage> {
                                     decoration: BoxDecoration(
                                         border: Border(
                                             bottom: BorderSide(
-                                                width: 1, color: Colors.grey))),
+                                                width: 1, color: Colors.grey
+                                            )
+                                        )
+                                    ),
                                     child: Text("Size 39 | EU",
                                         style: TextStyle(color: Colors.white)),
                                   )),
@@ -328,7 +331,10 @@ class _AddItemPageState extends State<AddItemPage> {
                                     decoration: BoxDecoration(
                                         border: Border(
                                             bottom: BorderSide(
-                                                width: 1, color: Colors.grey))),
+                                                width: 1, color: Colors.grey
+                                            )
+                                        )
+                                    ),
                                     child: Text("Height / cm | 39",
                                         style: TextStyle(color: Colors.white)),
                                   )),
@@ -344,7 +350,10 @@ class _AddItemPageState extends State<AddItemPage> {
                                     decoration: BoxDecoration(
                                         border: Border(
                                             bottom: BorderSide(
-                                                width: 1, color: Colors.grey))),
+                                                width: 1, color: Colors.grey
+                                            )
+                                        )
+                                    ),
                                     child: Text("Width / cm | 39",
                                         style: TextStyle(color: Colors.white)),
                                   )),
@@ -352,7 +361,158 @@ class _AddItemPageState extends State<AddItemPage> {
                           ],
                         )
                       ],
-                    ))
+                    )),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                  child: Row(
+                    children: <Widget>[
+                      CircleAvatar(
+                        radius: 5,
+                        backgroundColor: Colors.lightBlueAccent,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 5),
+                        child: Text(
+                          'Model',
+                          style: TextStyle(color: Colors.white, fontSize: 16),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Container(
+                  width: 370,
+                  decoration: BoxDecoration(
+                      border: Border(
+                          bottom: BorderSide(
+                              width: 1, color: Colors.grey
+                          )
+                      )
+                  ),
+                  child: TextField(
+                    style: TextStyle(color: Colors.white),
+                    decoration: InputDecoration(
+                      hintText: 'Nike Air Max',
+                      hintStyle: TextStyle(color: Colors.white30),
+                    ),
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                  child: Row(
+                    children: <Widget>[
+                      CircleAvatar(
+                        radius: 5,
+                        backgroundColor: Colors.lightBlueAccent,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 5),
+                        child: Text(
+                          'Material',
+                          style: TextStyle(color: Colors.white, fontSize: 16),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Container(
+                  width: 370,
+                  decoration: BoxDecoration(
+                      border: Border(
+                          bottom: BorderSide(
+                              width: 1, color: Colors.grey
+                          )
+                      )
+                  ),
+                  child: TextField(
+                    style: TextStyle(color: Colors.white),
+                    decoration: InputDecoration(
+                      hintText: 'Leather',
+                      hintStyle: TextStyle(color: Colors.white30),
+                    ),
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                  child: Row(
+                    children: <Widget>[
+                      CircleAvatar(
+                        radius: 5,
+                        backgroundColor: Colors.lightBlueAccent,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 5),
+                        child: Text(
+                          'Details',
+                          style: TextStyle(color: Colors.white, fontSize: 16),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Container(
+                  width: 370,
+                  decoration: BoxDecoration(
+                      border: Border(
+                          bottom: BorderSide(
+                              width: 1, color: Colors.grey
+                          )
+                      )
+                  ),
+                  child: TextField(
+                    style: TextStyle(color: Colors.white),
+                    decoration: InputDecoration(
+                      hintText: 'This shoes is ...',
+                      hintStyle: TextStyle(color: Colors.white30),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 20),
+                  child: Container(
+                    padding: EdgeInsets.only(bottom: 10),
+                    color: Color.fromARGB(100, 100, 100, 100),
+                    child: Column(
+                      children: <Widget>[
+                        Container(
+                          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                          child: Row(
+                            children: <Widget>[
+                              CircleAvatar(
+                                radius: 5,
+                                backgroundColor: Colors.lightBlueAccent,
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 5),
+                                child: Text(
+                                  'Price',
+                                  style: TextStyle(color: Colors.white, fontSize: 16),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                        Container(
+                          width: 370,
+                          decoration: BoxDecoration(
+                            border: Border(
+                                bottom: BorderSide(
+                                    width: 1, color: Colors.grey
+                                )
+                            ),
+                          ),
+                          child: TextField(
+                            style: TextStyle(color: Colors.white),
+                            decoration: InputDecoration(
+                              hintText: '100',
+                              hintStyle: TextStyle(color: Colors.white30),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
