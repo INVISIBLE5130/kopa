@@ -15,7 +15,118 @@ class _AddItemPageState extends State<AddItemPage> {
   bool pressed = false;
   Map userProfile;
 
-  String dropdownValue = 'One';
+  int selectedValueSize;
+
+  showPickerSize() {
+    showModalBottomSheet(
+        context: context,
+        builder: (BuildContext context) {
+          return CupertinoPicker(
+            backgroundColor: Colors.white,
+            onSelectedItemChanged: (value) {
+              setState(() {
+                selectedValueSize = value;
+              });
+            },
+            itemExtent: 32.0,
+            children: const [
+              Text('Size 36 | EU'),
+              Text('Size 36.5 | EU'),
+              Text('Size 37 | EU'),
+              Text('Size 37.5 | EU'),
+              Text('Size 38 | EU'),
+              Text('Size 38.5 | EU'),
+              Text('Size 39 | EU'),
+              Text('Size 39.5 | EU'),
+              Text('Size 40 | EU'),
+              Text('Size 40.5 | EU'),
+              Text('Size 41 | EU'),
+              Text('Size 41.5 | EU'),
+              Text('Size 42 | EU'),
+              Text('Size 42.5 | EU'),
+              Text('Size 43 | EU'),
+              Text('Size 43.5 | EU'),
+              Text('Size 44 | EU'),
+              Text('Size 44.5 | EU'),
+              Text('Size 45 | EU'),
+            ],
+          );
+        });
+  }
+
+  showPickerHeight() {
+    showModalBottomSheet(
+        context: context,
+        builder: (BuildContext context) {
+          return CupertinoPicker(
+            backgroundColor: Colors.white,
+            onSelectedItemChanged: (value) {
+              setState(() {
+                selectedValueSize = value;
+              });
+            },
+            itemExtent: 32.0,
+            children: const [
+              Text('Height / cm 36'),
+              Text('Height / cm 36.5'),
+              Text('Height / cm 37'),
+              Text('Height / cm 37.5'),
+              Text('Height / cm 38'),
+              Text('Height / cm 38.5'),
+              Text('Height / cm 39'),
+              Text('Height / cm 39.5'),
+              Text('Height / cm 40'),
+              Text('Height / cm 40.5'),
+              Text('Height / cm 41'),
+              Text('Height / cm 41.5'),
+              Text('Height / cm 42'),
+              Text('Height / cm 42.5'),
+              Text('Height / cm 43'),
+              Text('Height / cm 43.5'),
+              Text('Height / cm 44'),
+              Text('Height / cm 44.5'),
+              Text('Height / cm 45'),
+            ],
+          );
+        });
+  }
+
+  showPickerWidth() {
+    showModalBottomSheet(
+        context: context,
+        builder: (BuildContext context) {
+          return CupertinoPicker(
+            backgroundColor: Colors.white,
+            onSelectedItemChanged: (value) {
+              setState(() {
+                selectedValueSize = value;
+              });
+            },
+            itemExtent: 32.0,
+            children: const [
+              Text('Width / cm 36'),
+              Text('Width / cm 36.5'),
+              Text('Width / cm 37'),
+              Text('Width / cm 37.5'),
+              Text('Width / cm 38'),
+              Text('Width / cm 38.5'),
+              Text('Width / cm 39'),
+              Text('Width / cm 39.5'),
+              Text('Width / cm 40'),
+              Text('Width / cm 40.5'),
+              Text('Width / cm 41'),
+              Text('Width / cm 41.5'),
+              Text('Width / cm 42'),
+              Text('Width / cm 42.5'),
+              Text('Width / cm 43'),
+              Text('Width / cm 43.5'),
+              Text('Width / cm 44'),
+              Text('Width / cm 44.5'),
+              Text('Width / cm 45'),
+            ],
+          );
+        });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +148,7 @@ class _AddItemPageState extends State<AddItemPage> {
                       children: <Widget>[
                         GestureDetector(
                           child:
-                          Icon(Icons.arrow_back_ios, color: Colors.white),
+                              Icon(Icons.arrow_back_ios, color: Colors.white),
                           onTap: () {
                             Navigator.pop(context);
                           },
@@ -54,7 +165,7 @@ class _AddItemPageState extends State<AddItemPage> {
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.only(left: 20),
+                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                   child: Row(
                     children: <Widget>[
                       CircleAvatar(
@@ -65,7 +176,7 @@ class _AddItemPageState extends State<AddItemPage> {
                         padding: const EdgeInsets.only(left: 5),
                         child: Text(
                           'Add photo',
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(color: Colors.white, fontSize: 16),
                         ),
                       )
                     ],
@@ -86,8 +197,7 @@ class _AddItemPageState extends State<AddItemPage> {
                             height: 80,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(5.0),
-                              color: Colors.lightBlueAccent
-                            ),
+                                color: Colors.lightBlueAccent),
                             child: Icon(
                               Icons.camera_alt,
                               color: Colors.white,
@@ -98,25 +208,19 @@ class _AddItemPageState extends State<AddItemPage> {
                               height: 80,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(5.0),
-                                  color: Colors.white
-                              )
-                          ),
+                                  color: Colors.white)),
                           Container(
                               width: 80,
                               height: 80,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(5.0),
-                                  color: Colors.white
-                              )
-                          ),
+                                  color: Colors.white)),
                           Container(
                               width: 80,
                               height: 80,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(5.0),
-                                  color: Colors.white
-                              )
-                          ),
+                                  color: Colors.white)),
                         ],
                       ),
                       Row(
@@ -127,40 +231,32 @@ class _AddItemPageState extends State<AddItemPage> {
                               height: 80,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(5.0),
-                                  color: Colors.white
-                              )
-                          ),
+                                  color: Colors.white)),
                           Container(
                               width: 80,
                               height: 80,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(5.0),
-                                  color: Colors.white
-                              )
-                          ),
+                                  color: Colors.white)),
                           Container(
                               width: 80,
                               height: 80,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(5.0),
-                                  color: Colors.white
-                              )
-                          ),
+                                  color: Colors.white)),
                           Container(
                               width: 80,
                               height: 80,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(5.0),
-                                  color: Colors.white
-                              )
-                          ),
+                                  color: Colors.white)),
                         ],
                       )
                     ],
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.only(left: 20),
+                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                   child: Row(
                     children: <Widget>[
                       CircleAvatar(
@@ -171,7 +267,7 @@ class _AddItemPageState extends State<AddItemPage> {
                         padding: const EdgeInsets.only(left: 5),
                         child: Text(
                           'Size',
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(color: Colors.white, fontSize: 16),
                         ),
                       )
                     ],
@@ -181,40 +277,82 @@ class _AddItemPageState extends State<AddItemPage> {
                     padding: EdgeInsets.all(15),
                     color: Color.fromARGB(100, 100, 100, 100),
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: <Widget>[
-                        Image(
-                          image: AssetImage("assets/shoesSize.png"),
+                        Stack(
+                          children: <Widget>[
+                            Image(
+                              image: AssetImage("assets/shoesSize.png"),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(top: 25),
+                              child: Image(
+                                image: AssetImage("assets/width.png"),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: 75),
+                              child: Image(
+                                image: AssetImage("assets/height.png"),
+                              ),
+                            )
+                          ],
                         ),
                         Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            DropdownButton<String>(
-                              value: dropdownValue,
-                              icon: Icon(Icons.arrow_downward),
-                              iconSize: 24,
-                              elevation: 16,
-                              style: TextStyle(color: Colors.white),
-                              underline: Container(
-                                height: 2,
-                                color: Colors.white,
-                              ),
-                              onChanged: (String newValue) {
-                                setState(() {
-                                  dropdownValue = newValue;
-                                });
-                              },
-                              items: <String>['One', 'Two', 'Free', 'Four']
-                                  .map<DropdownMenuItem<String>>((String value) {
-                                return DropdownMenuItem<String>(
-                                  value: value,
-                                  child: Text(value),
-                                );
-                              }).toList(),
-                            )
+                            Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 20),
+                              child: GestureDetector(
+                                  onTap: showPickerSize,
+                                  child: Container(
+                                    width: 100,
+                                    padding:
+                                        const EdgeInsets.symmetric(vertical: 5),
+                                    decoration: BoxDecoration(
+                                        border: Border(
+                                            bottom: BorderSide(
+                                                width: 1, color: Colors.grey))),
+                                    child: Text("Size 39 | EU",
+                                        style: TextStyle(color: Colors.white)),
+                                  )),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 20),
+                              child: GestureDetector(
+                                  onTap: showPickerHeight,
+                                  child: Container(
+                                    width: 100,
+                                    padding:
+                                        const EdgeInsets.symmetric(vertical: 5),
+                                    decoration: BoxDecoration(
+                                        border: Border(
+                                            bottom: BorderSide(
+                                                width: 1, color: Colors.grey))),
+                                    child: Text("Height / cm | 39",
+                                        style: TextStyle(color: Colors.white)),
+                                  )),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 20),
+                              child: GestureDetector(
+                                  onTap: showPickerWidth,
+                                  child: Container(
+                                    width: 100,
+                                    padding:
+                                        const EdgeInsets.symmetric(vertical: 5),
+                                    decoration: BoxDecoration(
+                                        border: Border(
+                                            bottom: BorderSide(
+                                                width: 1, color: Colors.grey))),
+                                    child: Text("Width / cm | 39",
+                                        style: TextStyle(color: Colors.white)),
+                                  )),
+                            ),
                           ],
                         )
                       ],
-                    )
-                )
+                    ))
               ],
             ),
           ),
