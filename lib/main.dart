@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:kopa/core/ui/mainViewStatefulWidget.dart';
 
-import '../locator.dart';
+import 'locator.dart';
 
 void main() {
   setupLocator();
